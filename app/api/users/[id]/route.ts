@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "../../../../db";
 import { users, addresses } from "../../../../db/schema";
 import { eq } from "drizzle-orm";
@@ -19,7 +19,7 @@ const updateUserSchema = z.object({
 });
 
 export async function GET(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -59,7 +59,7 @@ export async function GET(
 }
 
 export async function PUT(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -106,7 +106,7 @@ export async function PUT(
 
 
 export async function DELETE(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
