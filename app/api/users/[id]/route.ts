@@ -84,7 +84,7 @@ export async function PUT(
       .set({
         firstname: data.firstname,
         lastname: data.lastname,
-        birthdate: data.birthdate,
+        birthdate: new Date(data.birthdate),
       })
       .where(eq(users.id, userId));
 
