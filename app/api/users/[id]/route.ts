@@ -20,12 +20,14 @@ const updateUserSchema = z.object({
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } } 
+  context: { params: Promise<{ id: string }> } 
 ) {
   try {
     // const { id } = context.params;
     // const userId = parseInt(id);
-    const userId = parseInt(context.params.id);
+    const params = await context.params;
+    const userId = parseInt(params.id);
+    // const userId = parseInt(context.params.id);
     const user = await db
       .select({
         firstname: users.firstname,
@@ -60,10 +62,12 @@ export async function GET(
 
 export async function PUT(
   req: NextRequest,
-  context: { params: { id: string }  }
+  context: { params: Promise<{ id: string }>  }
 ) {
   try {
-    const userId = parseInt(context.params.id);
+    // const userId = parseInt(context.params.id);
+    const params = await context.params;
+  const userId = parseInt(params.id);
     const body = await req.json();
     const parsed = updateUserSchema.safeParse(body);
     if (!parsed.success) {
@@ -107,10 +111,12 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userId = parseInt(context.params.id);
+    // const userId = parseInt(context.params.id);
+    const params = await context.params;
+  const userId = parseInt(params.id);
 
     
     await db.delete(addresses).where(eq(addresses.userId, userId));
