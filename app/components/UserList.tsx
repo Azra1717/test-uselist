@@ -3,15 +3,17 @@
 import Link from 'next/link';
 
 type User = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  birthdate: string;
-  address: {
+ users: {
+    id: number;
+    firstname: string;
+    lastname: string;
+    birthdate: string;
+  };
+  addresses: {
     street: string;
     city: string;
     province: string;
-    postal_code: string;
+    postalCode: string;
   } | null;
 };
 
