@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     await db.insert(users).values({
       firstname: data.firstname,
       lastname: data.lastname,
-      birthdate: data.birthdate,
+      birthdate: new Date(data.birthdate),
     });
 
    
