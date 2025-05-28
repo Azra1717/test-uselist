@@ -1,0 +1,32 @@
+### Create new user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "firstname": "",
+  "lastname": "Santossasao",
+  "birthdate": "1995-08-15",
+  "address": {
+    "street": "Jl. Mesalati",
+    "city": "Jakarta",
+    "province": "DKI Jakarta",
+    "postalCode": "12345"
+  }
+}
+
+
+# ### Edit user dengan ID 1
+# PUT http://localhost:3000/api/users/11
+# Content-Type: application/json
+
+# {
+#   "firstname": "Azra Updjasasaatedtttt",
+#   "lastname": "Nurul",
+#   "birthdate": "2000-01-01",
+#   "address": {
+#     "street": "Jlsas. Kenanga",
+#     "city": "Bandungsas",
+#     "province": "Jawash Barat",
+#     "postalCode": "5439921"
+#   }
+# }
